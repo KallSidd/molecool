@@ -5,11 +5,10 @@ A Python package for analyzing and visualizing xyz files. For MolSSI Workshop Py
 Handles the primary functions
 """
 
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-from mpl_toolkits.mplot3d import Axes3D
+from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
 
 
 def canvas(with_attribution=True):
@@ -146,12 +145,13 @@ def open_xyz(file_location):
 
 
 def write_xyz(file_location, symbols, coordinates):
-    ## Write an xyz file given a file location, symbols, and coordinates.
+    # Write an xyz file given a file location, symbols, and coordinates.
     num_atoms = len(symbols)
 
     if num_atoms != len(coordinates):
         raise ValueError(
-            f"write_xyz : the number of symbols ({num_atoms}) and number of coordinates ({len(coordinates)}) must be the same to write xyz file!"
+            f"write_xyz : the number of symbols ({num_atoms}) and number of coordinates"
+            f" ({len(coordinates)}) must be the same to write xyz file!"
         )
 
     with open(file_location, "w+") as f:
