@@ -7,3 +7,4 @@ from .visualize import draw_molecule, bond_histogram
 from ._version import __version__
 from . import io
 from .io import open_pdb, open_xyz, write_xyz
+from .functions import canvas
